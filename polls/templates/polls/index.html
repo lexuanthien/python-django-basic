@@ -1,0 +1,23 @@
+{% extends 'polls/master.html' %}
+
+{% block content %}
+    {% comment %} <h1>Xin chaof cac ban minh la thien hehe</h1> {% endcomment %}
+    {% comment %} <p>{{ name }}</p> {% endcomment %}
+    {% if users %}
+        {% for user in users %}
+            <p>{{ user.name }}</p>
+            <a href="{% url 'polls:details' user.id %}">Xem Bài Viết Của {{ user.name }}</a>
+            
+            {% comment %} {% for item in user.post_set.all  %}
+                <p>{{ item.title }}</p>
+            {% endfor %} {% endcomment %}
+        {% endfor %}
+    {% else %}
+        <p>Can not data !</p>
+    {% endif %}
+
+    {% comment %} Get 1 Fied {% endcomment %}
+    {% if user %}
+        <p style="color:red;">{{ user.name }}</p>
+    {% endif %}
+{% endblock  %}

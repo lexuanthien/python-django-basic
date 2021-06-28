@@ -1,0 +1,14 @@
+{% extends 'polls/master.html' %}
+{% block content %}
+    {% comment %} {% if posts %}
+        {% for post in posts %}
+            <p>{{ post.title }}</p>
+        {% endfor %}
+    {% else %}
+        <p>Không Có Bài Viết Nào.</p>
+    {% endif %} {% endcomment %}
+
+    {% for item in user.post_set.all  %}
+        <p>{{ item.title }}</p>
+    {% endfor %}
+{% endblock  %}
